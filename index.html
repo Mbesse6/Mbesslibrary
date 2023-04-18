@@ -1,35 +1,4 @@
-<?php
-    $nom = $prenom = $email = $tel = "";
-    $nomError = $prenomError = $emailError = $telError = "";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nom = checkInput($_POST["nom"]);
-        $prenom = checkInput($_POST["prenom"]);
-        $email = checkInput($_POST["email"]);
-        $tel = checkInput($_POST["tel"]);
-
-        if (empty($nom)) {
-            $nomError = 'Je veux votre nom';
-         }
-          if (empty($prenom)) {
-             $prenomError = 'Je veux votre prenom';
-          }
-          if (empty($email)) {
-             $emailError = 'Je veux votre email';
-          }
-          if (empty($tel)) {
-             $telError = 'Je veux votre tel';
-          }
-          
-    }
-    function checkInput($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
- ?>
 
 
 <!DOCTYPE html>
@@ -96,22 +65,22 @@
                 
                     <div class="col-md-6">
                         <label for="prenom">PRENOM</label>
-                        <input type="text" name="prenom"  id="prenom" class="form-control" placeholder="votre prenom" value="<?php echo $prenom; ?>">
+                        <input type="text" name="prenom"  id="prenom" class="form-control" placeholder="votre prenom">
                         <p class="comment"><?php echo $prenomError; ?></p>
                     </div>
                     <div class="col-md-6">
                         <label for="nom">NOM</label>
-                        <input type="text" name="nom" id="nom"  class="form-control" placeholder="votre nom" value="<?php echo $nom; ?>">
+                        <input type="text" name="nom" id="nom"  class="form-control" placeholder="votre nom">
                         <p class="comment"><?php echo $nomError; ?></p>
                     </div>
                     <div class="col-md-6">
                         <label for="email">EMAIL</label>
-                        <input type="email" name="email" id="email"  class="form-control" placeholder="votre email" value="<?php echo $email; ?>">
+                        <input type="email" name="email" id="email"  class="form-control" placeholder="votre email">
                         <p class="comment"><?php echo $emailError; ?></p>
                     </div>
                     <div class="col-md-6">
                         <label for="tel">TELEPHONE</label>
-                        <input type="number" name="tel" id="tel"  class="form-control" placeholder="votre numero" value="<?php echo $tel; ?>">
+                        <input type="number" name="tel" id="tel"  class="form-control" placeholder="votre numero">
                         <p class="comment"><?php echo $telError; ?></p>
                     </div>
                     <div class="col-md-12">
