@@ -1,0 +1,186 @@
+<?php
+    $nom = $prenom = $email = $tel = "";
+    $nomError = $prenomError = $emailError = $telError = "";
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nom = checkInput($_POST["nom"]);
+        $prenom = checkInput($_POST["prenom"]);
+        $email = checkInput($_POST["email"]);
+        $tel = checkInput($_POST["tel"]);
+
+        if (empty($nom)) {
+            $nomError = 'Je veux votre nom';
+         }
+          if (empty($prenom)) {
+             $prenomError = 'Je veux votre prenom';
+          }
+          if (empty($email)) {
+             $emailError = 'Je veux votre email';
+          }
+          if (empty($tel)) {
+             $telError = 'Je veux votre tel';
+          }
+          
+    }
+    function checkInput($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+ ?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equive="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>OnlineBooK</title>
+</head>
+
+<body>
+
+
+<header class="header">
+        <div class="header-1">
+            <a href="#" class="logo"> <i class="fa-times fa-book"></i>freelibrary</a>
+
+            <form action "" class="search-form">
+                <input type="search" name="" placeholder="chercher ici..." id="search-box">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+            <div class="icons">
+                <div id="search-btn" class="fas fa-search"></div>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <div id="login-btn" class="fas fa-user"></div>
+            </div>
+        </div>
+
+        <div class="header-2">
+            <nav class="navbar">
+                <a href="#home">Accueil</a>
+                <a href="#featured">Présentation</a>
+                <a href="#arrivals">Arrivées</a>
+                <a href="#reviews">Commentaires</a>
+                <a href="#blogs">Propositions</a>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <nav class="bottom-navbar">
+        <a href="#home" class="fas fa-home"></a>
+        <a href="#featured" class="fas fa-list"></a>
+        <a href="#arrivals" class="fas fa-tags"></a>
+        <a href="#reviews" class="fas fa-comments"></a>
+        <a href="#blogs" class="fas fa-blogs"></a>
+    </nav>
+
+        </div>
+        <div class="logo-form-container">
+        <div id="close-login-btn" class="fas fa-times"></div>
+    <div class="container">
+        <div class="col-lg-10 col-lg-offset-1"
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" id="contact-form" method="post">
+                <h2>INSCRIPTION</h2>
+                <div class="row">
+                
+                    <div class="col-md-6">
+                        <label for="prenom">PRENOM</label>
+                        <input type="text" name="prenom"  id="prenom" class="form-control" placeholder="votre prenom" value="<?php echo $prenom; ?>">
+                        <p class="comment"><?php echo $prenomError; ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="nom">NOM</label>
+                        <input type="text" name="nom" id="nom"  class="form-control" placeholder="votre nom" value="<?php echo $nom; ?>">
+                        <p class="comment"><?php echo $nomError; ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">EMAIL</label>
+                        <input type="email" name="email" id="email"  class="form-control" placeholder="votre email" value="<?php echo $email; ?>">
+                        <p class="comment"><?php echo $emailError; ?></p>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tel">TELEPHONE</label>
+                        <input type="number" name="tel" id="tel"  class="form-control" placeholder="votre numero" value="<?php echo $tel; ?>">
+                        <p class="comment"><?php echo $telError; ?></p>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" class="button1" value="S'inscrire">
+                    </div></br>
+                </div>
+                <p class="confirmation">Enregistement reussi :)</p>
+                
+                <p>Vous avez pas de compte? <a href="#">Connecter vous</a></p>
+            </form>
+        </div>
+    </div>
+
+    <section class="home" id="home">
+        <div class="row">
+            <div class="content">
+                <h3>Des miliers de propositions à votre portée!</h3>
+                <p>Découvrez les nouveautés de notre bibliotèque, soyez informé de la disponibilité de vos oeuvres préférées</p>
+                <a href="#" class="btn">Reservez maintenant</a>
+            </div>
+            <div class="books-slider">
+                <div class="swiper mySwiper">
+                    <a href="#" swiper-slide><img src="image/l1.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l2.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l3.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l4.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l5.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l6.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l7.png" alt=""></a>
+                    <a href="#" swiper-slide><img src="image/l8.png" alt=""></a>
+                </div>
+                <img src="image/OIP (1).png" class="stand" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="icon-contenair">
+        <div class="icons">
+            <i class="fas fa-plane"></i>
+            <div class="content">
+                <h3>Emprunt rapide</h3>
+                <p>Faites le en un clic</p>
+            </div>
+        </div>
+        <div class="icons">
+            <i class="fas fa-lock"></i>
+            <div class="content">
+                <h3>disponibilité régulière</h3>
+                <p>n'hésitez surtpout pas!</p>
+            </div>
+            <div class="icons">
+                <i class="fas fa-redo-alt"></i>
+                <div class="content">
+                    <h3>Soyez averti du délai pour tout emprunt</h3>
+                    <p>Ne soyez pas surpris</p>
+                </div>
+                <div class="icons">
+                    <i class="fas fa-headset"></i>
+                    <div class="content">
+                        <h3>Plateforme ouverte 24/24</h3>
+                        <p>N'hésitez à donner vos impressions surtout</p>
+                    </div>
+                </div>
+
+
+
+
+    </section>
+</body>
+
+</html>
