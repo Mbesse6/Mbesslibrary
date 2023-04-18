@@ -354,10 +354,7 @@ body{
     height: 25rem;
 
 }
-.home .row .books-slider a:hover img{
-    transform: scale(-9);
 
-}
 .home .row .books-slider .stand{
     width: 100%;
     margin: 4.5rem;
